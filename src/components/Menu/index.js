@@ -1,18 +1,23 @@
 import React from 'react';
 
-import QRCode from 'react-native-qrcode';
+import QRCode from 'react-native-qrcode-svg';
 import { Container, Code , Nav , NavItem, NavText , SignOutButton , SigOutBUttonText } from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Menu(){
+export default function Menu({translateY }){
     return  (
-        <Container>
+        <Container style={{
+            opacity: translateY.interpolate({
+                inputRange: [0 ,150],
+                outputRange: [0 ,1]
+            })
+        }}>
             <Code>
                 <QRCode
                     value="https://rocketseat.com.br"
                     size={100}
-                    bgColor="#FFF"
-                    fgColor="#8810AE"
+                    backgroundColor ="#FFF"
+                    Color="#8810AE"
                 />
             </Code>
             <Nav>
